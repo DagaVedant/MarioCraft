@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/background.png" id="1_bg"]
+[ext_resource type="Texture2D" path="res://assets/grass_dirt.png" id="2_grass"]
+[ext_resource type="Texture2D" path="res://assets/dirt.png" id="3_dirt"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="4_player"]
+[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="5_coin"]
+[ext_resource type="PackedScene" path="res://scenes/dripstone.tscn" id="6_drip"]
+[ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="7_kill"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grass"]
+texture = ExtResource("2_grass")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dirt"]
+texture = ExtResource("3_dirt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_terrain"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_grass")
+sources/1 = SubResource("TileSetAtlasSource_dirt")
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("4_player")]
+position = Vector2(64, 540)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 7, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 8, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 9, 0, 19, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 7, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 8, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 9, 0, 20, 0, 1, 0, 0, 0, 0, 0, 0, 0, 13, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_terrain")
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin1" parent="Coins" instance=ExtResource("5_coin")]
+position = Vector2(368, 510)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_coin")]
+position = Vector2(656, 430)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_coin")]
+position = Vector2(1056, 334)
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Dripstone1" parent="Hazards" instance=ExtResource("6_drip")]
+position = Vector2(496, 544)
+
+[node name="Dripstone2" parent="Hazards" instance=ExtResource("6_drip")]
+position = Vector2(848, 416)
+
+[node name="KillZone" parent="." instance=ExtResource("7_kill")]
+position = Vector2(600, 800)
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sky" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CoinLabel" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "Coins: 0/3"
