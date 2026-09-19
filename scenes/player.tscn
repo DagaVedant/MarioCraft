@@ -27,4 +27,4 @@ position_smoothing_speed = 6.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_jump")
-volume_db = -4.0
+volume_db = -14.0
