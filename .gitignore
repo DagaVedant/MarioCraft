@@ -4,3 +4,7 @@
 
 # Editor-only plugin (WakaTime), not part of the game
 /addons/
+
+# web builds (re-export from Godot, do not commit)
+/exports/
+/*.zip
