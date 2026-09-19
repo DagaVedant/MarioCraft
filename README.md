@@ -21,24 +21,6 @@ spawn on the start ground
         -> GAME OVER, game pauses, press space or r to play again
 ```
 
-## controls
-
-| action | keys |
-|---|---|
-| move | a / d or left / right |
-| jump | space, w or up |
-| play again (after game over) | space or r |
-
-## running it locally
-
-godot 4.7. open the folder in the editor and press f5, or from the project folder:
-
-```
-Godot_v4.7.2-stable_win64_console.exe --path .
-```
-
-no dependencies, no build step. tested: it runs clean with zero errors in the output panel.
-
 ## the project
 
 | file | job |
