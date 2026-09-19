@@ -1,6 +1,6 @@
 # MarioCraft
 
-A minecraft-style obby, where you have to run and jump past spikes and lava, collect three coins to win!!!
+A minecraft/mario style obby, where you have to run and jump past spikes and lava, collect three coins to win!!!
 
 **play it:**
 
