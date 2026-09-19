@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dhhot41272rw3" path="res://main.gd" id="8_main"]
 [ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="9_flag"]
 [ext_resource type="PackedScene" path="res://scenes/lava.tscn" id="10_lava"]
+[ext_resource type="AudioStream" path="res://assets/music_action_loop.wav" id="11_music"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grass"]
 texture = ExtResource("2_grass")
@@ -38,6 +39,11 @@ sources/3 = SubResource("TileSetAtlasSource_dg77c")
 
 [node name="Main" type="Node" unique_id=1667182913]
 script = ExtResource("8_main")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_music")
+volume_db = -6.0
+autoplay = true
 
 [node name="Player" parent="." unique_id=1829320317 instance=ExtResource("4_player")]
 position = Vector2(64, 540)

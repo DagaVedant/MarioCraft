@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bn2b1pyl51cgc" path="res://assets/player.png" id="1_tex"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_script"]
+[ext_resource type="AudioStream" path="res://assets/sfx_jump.wav" id="3_jump"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(26, 60)
@@ -23,3 +24,7 @@ limit_top = -400
 limit_bottom = 760
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jump")
+volume_db = -4.0

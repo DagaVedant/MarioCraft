@@ -14,6 +14,18 @@ func _ready() -> void:
 	checkpoint = player.global_position
 	_update_label()
 	_fit_camera_to_map()
+	_start_music()
+
+
+# Loop the soundtrack. Done in code so it works no matter what the .wav
+# import settings say.
+func _start_music() -> void:
+	var music: AudioStreamPlayer = $Music
+	if music.stream is AudioStreamWAV:
+		music.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	music.finished.connect(music.play)
+	if not music.playing:
+		music.play()
 
 
 # Camera limits follow whatever tiles exist, so painting more level to the
