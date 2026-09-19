@@ -22,7 +22,12 @@ func _ready() -> void:
 func _start_music() -> void:
 	var music: AudioStreamPlayer = $Music
 	if music.stream is AudioStreamWAV:
-		music.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		var wav: AudioStreamWAV = music.stream
+		# loop_end defaults to 0. Turning looping on without setting it
+		# loops a zero-length region, which sounds like a buzz.
+		wav.loop_begin = 0
+		wav.loop_end = int(wav.get_length() * wav.mix_rate)
+		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	music.finished.connect(music.play)
 	if not music.playing:
 		music.play()
