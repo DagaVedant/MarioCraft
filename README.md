@@ -2,7 +2,7 @@
 
 A minecraft/mario style obby, where you have to run and jump past spikes and lava, collect three coins to win!!!
 
-**play it:**
+**play it:** [itch.io link](https://vedantdaga.itch.io/mariocraft)
 
 ## what it does
 
