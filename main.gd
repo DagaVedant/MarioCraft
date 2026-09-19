@@ -1,9 +1,9 @@
 extends Node
 
-const COINS_TO_END := 3
+const COINS_TO_WIN := 3
 
 var coins_collected := 0
-var is_game_over := false
+var has_won := false
 var checkpoint := Vector2.ZERO
 
 @onready var coin_label: Label = $UI/CoinLabel
@@ -43,25 +43,25 @@ func _fit_camera_to_map() -> void:
 	cam.limit_right = used.end.x * tile + 64
 
 func collect_coin() -> void:
-	if is_game_over:
+	if has_won:
 		return
 	coins_collected += 1
 	_update_label()
-	if coins_collected >= COINS_TO_END:
-		game_over()
+	if coins_collected >= COINS_TO_WIN:
+		win()
 
 func set_checkpoint(pos: Vector2) -> void:
 	checkpoint = pos
 
 func player_died() -> void:
-	if is_game_over:
+	if has_won:
 		return
 	player.velocity = Vector2.ZERO
 	player.global_position = checkpoint + Vector2(0, -24)
 
-func game_over() -> void:
-	is_game_over = true
-	coin_label.text = "GAME OVER - you got all %d coins!\nPress Space or R to play again" % COINS_TO_END
+func win() -> void:
+	has_won = true
+	coin_label.text = "YOU WIN! All %d coins collected\nPress Space or R to play again" % COINS_TO_WIN
 	get_tree().paused = true
 
 func restart_level() -> void:
@@ -69,10 +69,10 @@ func restart_level() -> void:
 	get_tree().reload_current_scene.call_deferred()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_game_over:
+	if not has_won:
 		return
 	if event.is_action_pressed("jump") or (event is InputEventKey and event.pressed and event.keycode == KEY_R):
 		restart_level()
 
 func _update_label() -> void:
-	coin_label.text = "Coins: %d/%d" % [coins_collected, COINS_TO_END]
+	coin_label.text = "Coins: %d/%d" % [coins_collected, COINS_TO_WIN]
