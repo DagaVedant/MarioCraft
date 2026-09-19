@@ -1,18 +1,12 @@
-# coin rush
+# MarioCraft
 
-a minecraft-looking obby where the game ends the second you grab your third coin.
+a minecraft-mario combined obby
 
-**play it:** [itch.io link goes here once published](https://itch.io)
-**code:** [github.com/DagaVedant/jumpstart_haven_game](https://github.com/DagaVedant/jumpstart_haven_game)
+**play it:**
 
 ## what it does
 
-you're steve. you run and jump across floating dirt platforms, hop over dripstone spikes, stay out of the lava, and pick up coins. red flags along the way are checkpoints. get the third coin and it's over.
-
-## why
-
-- every platformer i've played makes you collect *more* stuff to win. i wanted one where collecting is the thing that ends it, so you actually think about the last coin instead of just grabbing everything
-- i wanted it to look like minecraft because i know exactly what those blocks are supposed to feel like to jump on
+you're steve. you run and jump across floating dirt platforms, hop over dripstone spikes, stay out of the lava, and pick up coins. red flags along the way are checkpoints. get all the coins and YOU WINNNN
 
 ## how it works
 
@@ -54,12 +48,10 @@ no dependencies, no build step. tested: it runs clean with zero errors in the ou
 | `scenes/coin.tscn` + `.gd` | pickup + sound |
 | `scenes/dripstone.tscn`, `lava.tscn`, `kill_zone.tscn` + `.gd` | the three ways to die |
 | `scenes/checkpoint.tscn` + `.gd` | the flags |
-| `assets/` | textures, the soundtrack loop, jump and coin sfx |
-
-every reusable thing is its own scene with its script sitting next to it, so changing `coin.tscn` changes every coin in the level.
+| `assets/` | textures, the soundtrack |
 
 ## built with
 
-godot 4.7 (mobile renderer), gdscript, one TileMapLayer for the ground, Area2D + `body_entered` signals for everything you can touch, AudioStreamPlayer nodes for sound.
+godot 4.7 (mobile renderer)
 
-made for [hack club jumpstart](https://jumpstart.hackclub.com), following the [2d godot platformer jam](https://jams.hackclub.com/jam/godot-platformer).
+made for [hack club jumpstart](https://jumpstart.hackclub.com), and used the [2d godot platformer jam](https://jams.hackclub.com/jam/godot-platformer).
